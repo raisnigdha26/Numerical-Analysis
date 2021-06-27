@@ -59,5 +59,6 @@ public class NAD_Gauss_Seidel_Method {
         }
 
         System.out.println("Does not converge in given maximum iteration");
+
     }
 }

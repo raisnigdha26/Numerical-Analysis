@@ -42,7 +42,8 @@ public class NAD_Gauss_Elimination_method {
             float sum=0.0f;
             for(int j=i+1;j<=n;j++)
             {
-                sum=sum+a[i][j]*x[j];            }
+                sum=sum+a[i][j]*x[j];
+            }
 
             x[i]=(a[i][n+1]-sum)/a[i][i];
         }

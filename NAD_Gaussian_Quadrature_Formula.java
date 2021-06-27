@@ -3,7 +3,7 @@ package numericalanalysis;
 import java.util.Scanner;
 
 public class NAD_Gaussian_Quadrature_Formula {
-    static double fun(double x) {
+    static float fun(float x) {
         return ((5 * x * x * x )- (3 * x * x )+ (2 * x )+ 1);
     }
     public static void main(String[] args) {
@@ -35,7 +35,6 @@ public class NAD_Gaussian_Quadrature_Formula {
             x[1]=0.3399810436; x[2]=-0.3399810436; x[3]=0.8611363116; x[4]=-0.8611363116;
         }
        else if (n == 5) {
-            System.out.println("hiii");
             w[1]=0.5688888889; w[2]=0.4786286705; w[3]=0.4786286705; w[4]=0.2369268851; w[5]=0.2369268851;
             x[1]=0; x[2]=0.5384693101; x[3]=-0.5384693101; x[4]=0.9061798459; x[5]=-0.9061798459;
         }
@@ -47,17 +46,19 @@ public class NAD_Gaussian_Quadrature_Formula {
             System.out.println("Enter valid value for n");
             System.exit(0);
         }
-        float[] f = new float[n + 2];
+        float f;
         float P,Q;
         float integral = 0.0f;
         P = (a + b) / 2;
         Q = (b - a) / 2;
-        for (int i = 1; i <= n; i++) {
-            System.out.printf("value of x[%d] is %.9f\n",i,x[i]);
-            double para = P + Q * x[i];
-            f[i] = (float) fun(para);
-            System.out.printf("value of w[%d] is %.9f\n",i,w[i]);
-            integral += w[i] * f[i];
+        for (int i = 1; i <n+1; i++) {
+           // System.out.printf("value of x[%d] is %.9f\n",i,x[i]);
+            float para = (float) (P + Q * x[i]);
+            f= fun(para);
+            System.out.printf("f%d = %f\n",i,f);
+           // System.out.printf("value of w[%d] is %.9f\n",i,w[i]);
+            integral = (float) (integral + w[i] * f);
+            System.out.printf("integral %f\n",integral);
         }
         integral = Q * integral;
         System.out.println(integral);
