@@ -43,7 +43,7 @@ public class NAD_Newtons_Divided_Differance_Interpolation {
     static void NDDIF(float[] x_arr, float[] y_arr, float x, int n){
         float[][] d = difference(x_arr, y_arr, n);
         float result = y_arr[0];
-        for (int i = 1; i <= n - 1; i++) {
+        for (int i = 0; i <= n - 1; i++) {
 
             result += numerator(x, x_arr, i)*d[0][i];
 
